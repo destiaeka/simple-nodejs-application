@@ -49,5 +49,6 @@ jobs:
         key: ${{ secrets.VPS_SSH_KEY }}
         port: ${{ secrets.VPS_PORT }}
         script: |
-          cd ~/simple-nodejs-application
+          cd /var/www/simple-nodejs-application
+          git pull origin main
           docker-compose up -d --build
