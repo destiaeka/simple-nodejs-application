@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 const db = mysql.createConnection({
   host: process.env.DB_HOST || 'db',
   user: process.env.DB_USER || 'root',
-  password: process.env.DB_PASSWORD || 'root',
+  password: process.env.DB_PASSWORD || 'secret',
   database: process.env.DB_NAME || 'testdb'
 });
 

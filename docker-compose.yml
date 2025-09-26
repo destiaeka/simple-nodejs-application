@@ -1,0 +1,30 @@
+version: '3.3'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: nodejs-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: testdb
+    volumes:
+      - nodejs:/var/lib/mysql
+    networks:
+      - mynet
+  
+  app:
+    build: .
+    container_name: nodejs-app
+    depends_on:
+      - db
+    ports:
+      - "2000:80"
+    networks:
+      - mynet
+
+volumes:
+  nodejs:
+
+networks:
+  mynet:
