@@ -18,6 +18,11 @@ services:
     container_name: nodejs-app
     depends_on:
       - db
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_PASSWORD: secret
+      DB_NAME: testdb
     ports:
       - "2000:80"
     networks:
