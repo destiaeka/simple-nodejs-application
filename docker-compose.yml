@@ -24,7 +24,7 @@ services:
       DB_PASSWORD: secret
       DB_NAME: testdb
     ports:
-      - "2000:80"
+      - "2000:2000"
     networks:
       - mynet
 
