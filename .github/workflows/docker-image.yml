@@ -21,14 +21,6 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
-    - name: Build & Push dockerimage
-      run: |
-        docker-compose build
-        docker tag nodejs-app:latest ${{ secrets.DOCKER_USERNAME}}/nodejs-app:latest
-        docker push ${{ secrets.DOCKER_USERNAME}}/nodejs-app:latest
-        docker tag nodejs-db:latest ${{ secrets.DOCKER_USERNAME}}/nodejs-db:latest
-        docker push ${{ secrets.DOCKER_USERNAME}}/nodejs-db:latest
-
     - name: Build the Docker image
       uses: appleboy/ssh-action@v1
       with:
